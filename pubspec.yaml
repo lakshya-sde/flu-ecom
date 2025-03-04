@@ -1,0 +1,71 @@
+name: flu_ecom
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+environment:
+  sdk: ^3.7.0
+
+
+#-----------------------Packages Start------------------------#
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #Icons
+  iconsax: ^0.0.8
+  cupertino_icons: ^1.0.8
+
+  #Stage Management
+  get: ^4.7.2
+
+#-----------------------Packages End------------------------#
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  #-----------------------Local Assets -----------------------#
+  assets:
+    - assets/logos/
+    - assets/icons/
+    - assets/images/
+
+
+  #-----------------------Local Fonts -----------------------#
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/icons/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/icons/Poppins-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/icons/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/icons/Poppins-Italic.ttf
+          style: italic
+        - asset: assets/icons/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/icons/Poppins-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/icons/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/icons/Poppins-Bold.ttf
+          weight: 800
+        - asset: assets/icons/Poppins-BoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/icons/Poppins-ExtraBold.ttf
+          weight: 900
+        - asset: assets/icons/Poppins-ExtraBoldItalic.ttf
+          weight: 900
+          style: italic
