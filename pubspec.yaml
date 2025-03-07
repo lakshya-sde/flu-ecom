@@ -1,11 +1,10 @@
 name: flu_ecom
 description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 environment:
   sdk: ^3.7.0
-
 
 #-----------------------Packages Start------------------------#
 dependencies:
@@ -17,6 +16,8 @@ dependencies:
   intl: ^0.20.2
   logger: ^2.5.0
   url_launcher: ^6.1.12
+  flutter_native_splash: ^2.4.5
+  smooth_page_indicator: ^1.2.1
 
   #Icons
   iconsax: ^0.0.8
@@ -34,17 +35,14 @@ dev_dependencies:
 
   flutter_lints: ^5.0.0
 
-
 flutter:
-
   uses-material-design: true
 
   #-----------------------Local Assets -----------------------#
   assets:
     - assets/logos/
     - assets/icons/
-    - assets/images/
-
+    - assets/images/on_boarding_images/
 
   #-----------------------Local Fonts -----------------------#
   fonts:
