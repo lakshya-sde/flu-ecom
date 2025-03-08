@@ -1,13 +1,12 @@
-import 'package:flu_ecom/common/widgets/success_screens/success_screen.dart';
-import 'package:flu_ecom/features/authentication/screens/login/login.dart';
+import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/text_strings.dart';
 import 'package:flu_ecom/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:flu_ecom/common/widgets/success_screens/success_screen.dart';
+import 'package:flu_ecom/features/authentication/screens/login/login.dart';
 
 class VerifyEmail extends StatelessWidget {
   const VerifyEmail({super.key});

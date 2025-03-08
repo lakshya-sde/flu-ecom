@@ -1,3 +1,4 @@
+import 'package:flu_ecom/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -37,7 +38,10 @@ class LoginForm extends StatelessWidget {
                 Row(children: [Checkbox(value: true, onChanged: (val) {}), Text(TTexts.rememberMe)]),
 
                 //Forgot password
-                TextButton(onPressed: () {}, child: Text(TTexts.forgetPassword)),
+                TextButton(
+                  onPressed: () => Get.to(() => const ForgetPasswordScreen()),
+                  child: Text(TTexts.forgetPassword),
+                ),
               ],
             ),
 
