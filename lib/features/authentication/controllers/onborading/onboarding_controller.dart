@@ -1,3 +1,4 @@
+import 'package:flu_ecom/features/authentication/screens/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,11 +16,7 @@ class OnBoardingController extends GetxController {
 
   void dotNavigationClick(int index) {
     currentPageIndex.value = index;
-    pageController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
+    pageController.animateToPage(index, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
   }
 
   void nextPage() {
@@ -32,15 +29,12 @@ class OnBoardingController extends GetxController {
       );
     } else {
       //go to login screen
+      Get.off(const LoginScreen());
     }
   }
 
   void skipPage() {
     currentPageIndex.value = 2;
-    pageController.animateToPage(
-      2,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
+    pageController.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
   }
 }
