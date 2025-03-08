@@ -1,4 +1,5 @@
 import 'package:flu_ecom/features/authentication/screens/password_configuration/forget_password.dart';
+import 'package:flu_ecom/navigation_menu.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -48,7 +49,10 @@ class LoginForm extends StatelessWidget {
             SizedBox(height: TSizes.spaceBtwSections),
 
             //Sign in Button
-            SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () {}, child: Text(TTexts.signIn))),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(onPressed: () => Get.to(() => NavigationMenu()), child: Text(TTexts.signIn)),
+            ),
             SizedBox(height: TSizes.spaceBtwItems),
 
             //Create Account Button
