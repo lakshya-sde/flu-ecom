@@ -25,11 +25,7 @@ class HomeCategories extends StatelessWidget {
         itemCount: categories.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
-          return VerticalImageText(
-            image: categories[index]['image'],
-            title: categories[index]['title'],
-            onTap: () {},
-          );
+          return VerticalImageText(image: categories[index]['image'], title: categories[index]['title'], onTap: () {});
         },
       ),
     );

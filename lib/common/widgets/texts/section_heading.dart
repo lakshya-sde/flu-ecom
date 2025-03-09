@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flu_ecom/utils/constants/colors.dart';
 
 class SectionHeading extends StatelessWidget {
   const SectionHeading({
     super.key,
     required this.title,
-    this.textColor = TColors.white,
+    this.textColor,
     this.showActionButton = false,
     this.buttonTitle = 'View All',
     this.onPressed,
@@ -24,14 +23,11 @@ class SectionHeading extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(
-            context,
-          ).textTheme.headlineSmall!.apply(color: textColor),
+          style: Theme.of(context).textTheme.headlineSmall!.apply(color: textColor),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        if (showActionButton)
-          TextButton(onPressed: onPressed, child: Text(buttonTitle!)),
+        if (showActionButton) TextButton(onPressed: onPressed, child: Text(buttonTitle!)),
       ],
     );
   }

@@ -13,7 +13,7 @@ class RoundedImage extends StatelessWidget {
     this.applyImageRadius = true,
     this.border,
     this.borderRadius = TSizes.md,
-    this.backgroundColor = TColors.light,
+    this.backgroundColor,
     this.padding,
     this.onPressed,
   });
@@ -27,7 +27,7 @@ class RoundedImage extends StatelessWidget {
   final BoxBorder? border;
   final double borderRadius;
 
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final EdgeInsetsGeometry? padding;
   final VoidCallback? onPressed;
 
@@ -45,14 +45,8 @@ class RoundedImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: ClipRRect(
-          borderRadius:
-              applyImageRadius
-                  ? BorderRadius.circular(borderRadius)
-                  : BorderRadius.zero,
-          child: Image(
-            image: isNetworkImage ? NetworkImage(image) : AssetImage(image),
-            fit: fit,
-          ),
+          borderRadius: applyImageRadius ? BorderRadius.circular(borderRadius) : BorderRadius.zero,
+          child: Image(image: isNetworkImage ? NetworkImage(image) : AssetImage(image), fit: fit),
         ),
       ),
     );

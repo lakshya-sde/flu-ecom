@@ -36,7 +36,7 @@ class ProductCardVertical extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [TShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: dark ? TColors.dark : TColors.white,
+          color: dark ? TColors.darkerGrey : TColors.white,
         ),
         child: Column(
           children: [
@@ -56,28 +56,13 @@ class ProductCardVertical extends StatelessWidget {
                     child: TRoundedContainer(
                       radius: TSizes.sm,
                       backgroundColor: TColors.secondary.withValues(alpha: 0.8),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: TSizes.sm,
-                        vertical: TSizes.xs,
-                      ),
-                      child: Text(
-                        '25%',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.labelLarge!.apply(color: TColors.black),
-                      ),
+                      padding: EdgeInsets.symmetric(horizontal: TSizes.sm, vertical: TSizes.xs),
+                      child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black)),
                     ),
                   ),
 
                   /// Favourite Icon Button
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: CircularIcon(
-                      icon: Iconsax.heart5,
-                      color: Colors.red,
-                    ),
-                  ),
+                  Positioned(top: 0, right: 0, child: CircularIcon(icon: Iconsax.heart5, color: Colors.red)),
                 ],
               ),
             ),
@@ -93,52 +78,40 @@ class ProductCardVertical extends StatelessWidget {
                   SizedBox(height: TSizes.spaceBtwItems / 2),
                   Row(
                     children: [
-                      Text(
-                        brand,
-                        style: Theme.of(context).textTheme.labelMedium,
-                        maxLines: 1,
-                      ),
+                      Text(brand, style: Theme.of(context).textTheme.labelMedium, maxLines: 1),
                       SizedBox(width: TSizes.xs),
-                      Icon(
-                        Iconsax.verify5,
-                        color: TColors.primary,
-                        size: TSizes.iconXs,
-                      ),
-                    ],
-                  ),
-
-                  // Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ProductPriceText(price: price.toString()),
-
-                      Container(
-                        decoration: BoxDecoration(
-                          color: TColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(TSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(
-                              TSizes.productImageRadius,
-                            ),
-                          ),
-                        ),
-                        child: SizedBox(
-                          width: TSizes.iconLg * 1.2,
-                          height: TSizes.iconLg * 1.2,
-                          child: Center(
-                            child: Icon(
-                              Iconsax.add,
-                              color: TColors.white,
-                              size: TSizes.iconSm,
-                            ),
-                          ),
-                        ),
-                      ),
+                      Icon(Iconsax.verify5, color: TColors.primary, size: TSizes.iconXs),
                     ],
                   ),
                 ],
               ),
+            ),
+
+            Spacer(), //middle spacing
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: TSizes.sm),
+                  child: ProductPriceText(price: price.toString()),
+                ),
+
+                Container(
+                  decoration: BoxDecoration(
+                    color: TColors.dark,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(TSizes.cardRadiusMd),
+                      bottomRight: Radius.circular(TSizes.productImageRadius),
+                    ),
+                  ),
+                  child: SizedBox(
+                    width: TSizes.iconLg * 1.2,
+                    height: TSizes.iconLg * 1.2,
+                    child: Center(child: Icon(Iconsax.add, color: TColors.white, size: TSizes.iconSm)),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
