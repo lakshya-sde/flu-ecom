@@ -20,7 +20,10 @@ class PromoSlider extends StatelessWidget {
       children: [
         CarouselSlider(
           items: banners.map((banner) => RoundedImage(image: banner)).toList(),
-          options: CarouselOptions(viewportFraction: 1, onPageChanged: (index, _) => controller.updatePageIndex(index)),
+          options: CarouselOptions(
+            viewportFraction: 1,
+            onPageChanged: (index, _) => controller.updatePageIndex(index),
+          ),
         ),
         SizedBox(height: TSizes.spaceBtwItems),
         Obx(
@@ -32,7 +35,10 @@ class PromoSlider extends StatelessWidget {
                   width: 20,
                   height: 4,
                   margin: EdgeInsets.only(right: 10),
-                  backgroundColor: controller.carouselCurrentIndex.value == i ? TColors.primary : TColors.grey,
+                  backgroundColor:
+                      controller.carouselCurrentIndex.value == i
+                          ? TColors.primary
+                          : TColors.grey,
                 ),
             ],
           ),

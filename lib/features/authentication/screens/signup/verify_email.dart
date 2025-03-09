@@ -16,7 +16,12 @@ class VerifyEmail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        actions: [IconButton(onPressed: () => Get.offAll(() => LoginScreen()), icon: Icon(CupertinoIcons.clear))],
+        actions: [
+          IconButton(
+            onPressed: () => Get.offAll(() => LoginScreen()),
+            icon: Icon(CupertinoIcons.clear),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -24,13 +29,24 @@ class VerifyEmail extends StatelessWidget {
           child: Column(
             children: [
               ///Image
-              Image(image: AssetImage(TImages.deliveredEmailIllustration), width: THelperFunctions.screenWidth() * 0.6),
+              Image(
+                image: AssetImage(TImages.deliveredEmailIllustration),
+                width: THelperFunctions.screenWidth() * 0.6,
+              ),
               SizedBox(height: TSizes.spaceBtwItems),
 
               ///Tile and Subtitle
-              Text(TTexts.confirmEmail, style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center),
+              Text(
+                TTexts.confirmEmail,
+                style: Theme.of(context).textTheme.headlineMedium,
+                textAlign: TextAlign.center,
+              ),
               SizedBox(height: TSizes.spaceBtwItems),
-              Text('lakshya@gmail.com', style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center),
+              Text(
+                'lakshya@gmail.com',
+                style: Theme.of(context).textTheme.labelLarge,
+                textAlign: TextAlign.center,
+              ),
               Text(
                 TTexts.confirmEmailSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
@@ -55,7 +71,13 @@ class VerifyEmail extends StatelessWidget {
                 ),
               ),
               SizedBox(height: TSizes.spaceBtwItems),
-              SizedBox(width: double.infinity, child: TextButton(onPressed: () {}, child: Text(TTexts.resendEmail))),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(TTexts.resendEmail),
+                ),
+              ),
             ],
           ),
         ),

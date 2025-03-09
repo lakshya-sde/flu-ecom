@@ -12,20 +12,34 @@ class TSocialButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          decoration: BoxDecoration(border: Border.all(color: TColors.grey), borderRadius: BorderRadius.circular(100)),
+          decoration: BoxDecoration(
+            border: Border.all(color: TColors.grey),
+            borderRadius: BorderRadius.circular(100),
+          ),
           child: IconButton(
             onPressed: () {},
-            icon: Image(image: AssetImage(TImages.google), width: TSizes.iconMd, height: TSizes.iconMd),
+            icon: Image(
+              image: AssetImage(TImages.google),
+              width: TSizes.iconMd,
+              height: TSizes.iconMd,
+            ),
           ),
         ),
 
         SizedBox(width: TSizes.spaceBtwItems),
 
         Container(
-          decoration: BoxDecoration(border: Border.all(color: TColors.grey), borderRadius: BorderRadius.circular(100)),
+          decoration: BoxDecoration(
+            border: Border.all(color: TColors.grey),
+            borderRadius: BorderRadius.circular(100),
+          ),
           child: IconButton(
             onPressed: () {},
-            icon: Image(image: AssetImage(TImages.facebook), width: TSizes.iconMd, height: TSizes.iconMd),
+            icon: Image(
+              image: AssetImage(TImages.facebook),
+              width: TSizes.iconMd,
+              height: TSizes.iconMd,
+            ),
           ),
         ),
       ],

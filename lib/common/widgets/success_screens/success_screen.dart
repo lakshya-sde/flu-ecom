@@ -25,19 +25,33 @@ class SuccessScreen extends StatelessWidget {
           padding: TSpacingStyle.paddingWithAppBarHeight * 2,
           child: Column(
             children: [
-              Image(image: AssetImage(image), width: THelperFunctions.screenWidth() * 0.6),
+              Image(
+                image: AssetImage(image),
+                width: THelperFunctions.screenWidth() * 0.6,
+              ),
               SizedBox(height: TSizes.spaceBtwSections),
 
               ///Tile and Subtitle
-              Text(title, style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center),
+              Text(
+                title,
+                style: Theme.of(context).textTheme.headlineMedium,
+                textAlign: TextAlign.center,
+              ),
               SizedBox(height: TSizes.spaceBtwItems),
-              Text(subtitle, style: Theme.of(context).textTheme.labelMedium, textAlign: TextAlign.center),
+              Text(
+                subtitle,
+                style: Theme.of(context).textTheme.labelMedium,
+                textAlign: TextAlign.center,
+              ),
               SizedBox(height: TSizes.spaceBtwSections),
 
               ///Buttons
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(onPressed: onPressed, child: Text(TTexts.tContinue)),
+                child: ElevatedButton(
+                  onPressed: onPressed,
+                  child: Text(TTexts.tContinue),
+                ),
               ),
             ],
           ),

@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 
 class GridLayout extends StatelessWidget {
-  const GridLayout({super.key, required this.itemCount, required this.itemBuilder, this.mainAxisExtent});
+  const GridLayout({
+    super.key,
+    required this.itemCount,
+    required this.itemBuilder,
+    this.mainAxisExtent,
+  });
 
   final int itemCount;
   final double? mainAxisExtent;

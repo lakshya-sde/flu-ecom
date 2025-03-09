@@ -14,13 +14,27 @@ class TFormDivider extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         //Left part
-        Flexible(child: Divider(color: dark ? TColors.darkGrey : TColors.grey, thickness: 0.5, indent: 60, endIndent: 5)),
+        Flexible(
+          child: Divider(
+            color: dark ? TColors.darkGrey : TColors.grey,
+            thickness: 0.5,
+            indent: 60,
+            endIndent: 5,
+          ),
+        ),
 
         //Center
         Text(dividerText, style: Theme.of(context).textTheme.labelMedium),
 
         //Right part
-        Flexible(child: Divider(color: dark ? TColors.darkGrey : TColors.grey, thickness: 0.5, indent: 5, endIndent: 60)),
+        Flexible(
+          child: Divider(
+            color: dark ? TColors.darkGrey : TColors.grey,
+            thickness: 0.5,
+            indent: 5,
+            endIndent: 60,
+          ),
+        ),
       ],
     );
   }

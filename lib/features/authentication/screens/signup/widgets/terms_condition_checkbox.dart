@@ -13,13 +13,20 @@ class TermsAndConditionCheckbox extends StatelessWidget {
 
     return Row(
       children: [
-        SizedBox(width: 24, height: 24, child: Checkbox(value: true, onChanged: (val) {})),
+        SizedBox(
+          width: 24,
+          height: 24,
+          child: Checkbox(value: true, onChanged: (val) {}),
+        ),
         SizedBox(width: TSizes.spaceBtwItems),
         Text.rich(
           TextSpan(
             children: [
               //I Agree To
-              TextSpan(text: '${TTexts.iAgreeTo} ', style: Theme.of(context).textTheme.bodySmall),
+              TextSpan(
+                text: '${TTexts.iAgreeTo} ',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
 
               //Privacy Policy
               TextSpan(
@@ -32,7 +39,10 @@ class TermsAndConditionCheckbox extends StatelessWidget {
               ),
 
               //And
-              TextSpan(text: ' ${TTexts.and} ', style: Theme.of(context).textTheme.bodySmall),
+              TextSpan(
+                text: ' ${TTexts.and} ',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
 
               //Terms Of Use
               TextSpan(

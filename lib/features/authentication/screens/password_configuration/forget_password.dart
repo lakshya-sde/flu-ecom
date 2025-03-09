@@ -14,7 +14,12 @@ class ForgetPasswordScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        actions: [IconButton(onPressed: () => Get.back(), icon: Icon(CupertinoIcons.clear))],
+        actions: [
+          IconButton(
+            onPressed: () => Get.back(),
+            icon: Icon(CupertinoIcons.clear),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -23,11 +28,17 @@ class ForgetPasswordScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ///Title
-              Text(TTexts.forgetPasswordTitle, style: Theme.of(context).textTheme.headlineLarge),
+              Text(
+                TTexts.forgetPasswordTitle,
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
               SizedBox(height: TSizes.spaceBtwItems),
 
               ///Subtitle
-              Text(TTexts.forgetPasswordSubTitle, style: Theme.of(context).textTheme.labelMedium),
+              Text(
+                TTexts.forgetPasswordSubTitle,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
               SizedBox(height: TSizes.spaceBtwSections * 2),
 
               ///Form
@@ -35,12 +46,18 @@ class ForgetPasswordScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     TextFormField(
-                      decoration: InputDecoration(labelText: TTexts.email, prefixIcon: Icon(Iconsax.direct_right)),
+                      decoration: InputDecoration(
+                        labelText: TTexts.email,
+                        prefixIcon: Icon(Iconsax.direct_right),
+                      ),
                     ),
                     SizedBox(height: TSizes.spaceBtwSections),
                     SizedBox(
                       width: double.infinity,
-                      child: ElevatedButton(onPressed: () => Get.to(() => ResetPassword()), child: Text(TTexts.submit)),
+                      child: ElevatedButton(
+                        onPressed: () => Get.to(() => ResetPassword()),
+                        child: Text(TTexts.submit),
+                      ),
                     ),
                   ],
                 ),

@@ -14,7 +14,12 @@ class ResetPassword extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        actions: [IconButton(onPressed: () => Get.back(), icon: Icon(CupertinoIcons.clear))],
+        actions: [
+          IconButton(
+            onPressed: () => Get.back(),
+            icon: Icon(CupertinoIcons.clear),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -22,7 +27,10 @@ class ResetPassword extends StatelessWidget {
           child: Column(
             children: [
               ///Image with 60% of screen width
-              Image(image: AssetImage(TImages.deliveredEmailIllustration), width: THelperFunctions.screenWidth() * 0.6),
+              Image(
+                image: AssetImage(TImages.deliveredEmailIllustration),
+                width: THelperFunctions.screenWidth() * 0.6,
+              ),
               SizedBox(height: TSizes.spaceBtwSections),
 
               ///Tile and Subtitle
@@ -40,11 +48,23 @@ class ResetPassword extends StatelessWidget {
               SizedBox(height: TSizes.spaceBtwSections),
 
               ///Buttons
-              SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () {}, child: Text(TTexts.done))),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(TTexts.done),
+                ),
+              ),
 
               SizedBox(height: TSizes.spaceBtwItems),
 
-              SizedBox(width: double.infinity, child: TextButton(onPressed: () {}, child: Text(TTexts.resendEmail))),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(TTexts.resendEmail),
+                ),
+              ),
             ],
           ),
         ),

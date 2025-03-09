@@ -24,7 +24,10 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     Widget? leading() {
       if (showBackArrow) {
-        return IconButton(onPressed: () => Get.back(), icon: Icon(Iconsax.arrow_left));
+        return IconButton(
+          onPressed: () => Get.back(),
+          icon: Icon(Iconsax.arrow_left),
+        );
       } else if (leadingIcon != null) {
         return IconButton(onPressed: leadingOnPressed, icon: Icon(leadingIcon));
       }
@@ -33,7 +36,12 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: TSizes.md),
-      child: AppBar(automaticallyImplyLeading: false, title: title, leading: leading(), actions: actions),
+      child: AppBar(
+        automaticallyImplyLeading: false,
+        title: title,
+        leading: leading(),
+        actions: actions,
+      ),
     );
   }
 

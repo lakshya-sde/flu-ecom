@@ -20,7 +20,10 @@ class SignupForm extends StatelessWidget {
               //First Name
               Expanded(
                 child: TextFormField(
-                  decoration: InputDecoration(labelText: TTexts.firstName, prefixIcon: Icon(Iconsax.user)),
+                  decoration: InputDecoration(
+                    labelText: TTexts.firstName,
+                    prefixIcon: Icon(Iconsax.user),
+                  ),
                 ),
               ),
 
@@ -29,7 +32,10 @@ class SignupForm extends StatelessWidget {
               //Last Name
               Expanded(
                 child: TextFormField(
-                  decoration: InputDecoration(labelText: TTexts.lastName, prefixIcon: Icon(Iconsax.user)),
+                  decoration: InputDecoration(
+                    labelText: TTexts.lastName,
+                    prefixIcon: Icon(Iconsax.user),
+                  ),
                 ),
               ),
             ],
@@ -37,15 +43,30 @@ class SignupForm extends StatelessWidget {
           SizedBox(height: TSizes.spaceBtwItems),
 
           //Username
-          TextFormField(decoration: InputDecoration(labelText: TTexts.username, prefixIcon: Icon(Iconsax.user_edit))),
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: TTexts.username,
+              prefixIcon: Icon(Iconsax.user_edit),
+            ),
+          ),
           SizedBox(height: TSizes.spaceBtwItems),
 
           //Email
-          TextFormField(decoration: InputDecoration(labelText: TTexts.email, prefixIcon: Icon(Iconsax.direct))),
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: TTexts.email,
+              prefixIcon: Icon(Iconsax.direct),
+            ),
+          ),
           SizedBox(height: TSizes.spaceBtwItems),
 
           //Mobile
-          TextFormField(decoration: InputDecoration(labelText: TTexts.phoneNo, prefixIcon: Icon(Iconsax.call))),
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: TTexts.phoneNo,
+              prefixIcon: Icon(Iconsax.call),
+            ),
+          ),
           SizedBox(height: TSizes.spaceBtwItems),
 
           //Password
@@ -66,7 +87,10 @@ class SignupForm extends StatelessWidget {
           ///Sign Up Button
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(onPressed: () => Get.to(() => VerifyEmail()), child: Text(TTexts.createAccount)),
+            child: ElevatedButton(
+              onPressed: () => Get.to(() => VerifyEmail()),
+              child: Text(TTexts.createAccount),
+            ),
           ),
           SizedBox(height: TSizes.spaceBtwSections),
         ],

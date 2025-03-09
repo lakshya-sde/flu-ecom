@@ -58,7 +58,13 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ///Promo Slider
-                  PromoSlider(banners: [TImages.promoBanner1, TImages.promoBanner2, TImages.promoBanner3]),
+                  PromoSlider(
+                    banners: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner2,
+                      TImages.promoBanner3,
+                    ],
+                  ),
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   ///Product Card Vertical
