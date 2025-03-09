@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/common/widgets/layouts/grid_layout.dart';
 import 'package:flu_ecom/common/widgets/products/product_cards/product_card_vertical.dart';
-import 'package:flu_ecom/utils/constants/image_strings.dart';
-import 'package:flutter/material.dart';
 
 class VerticalProductGrid extends StatelessWidget {
   VerticalProductGrid({super.key});
