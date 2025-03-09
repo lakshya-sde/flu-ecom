@@ -8,7 +8,19 @@ import 'package:flu_ecom/common/widgets/custom_shapes/container/search_container
 import 'package:flu_ecom/common/widgets/custom_shapes/container/primary_header_conatiner.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final List<Map<String, dynamic>> categories = [
+    {'image': TImages.jeweleryIcon, 'title': 'Jewelery'},
+    {'image': TImages.electronicsIcon, 'title': 'Electronics'},
+    {'image': TImages.furnitureIcon, 'title': 'Furniture'},
+    {'image': TImages.sportIcon, 'title': 'Sports'},
+    {'image': TImages.shoeIcon, 'title': 'Shoe'},
+    {'image': TImages.clothIcon, 'title': 'Cloth'},
+    {'image': TImages.cosmeticsIcon, 'title': 'Cosmetics'},
+    {'image': TImages.animalIcon, 'title': 'Animal'},
+    {'image': TImages.toyIcon, 'title': 'Toy'},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +53,14 @@ class HomeScreen extends StatelessWidget {
                         SizedBox(
                           height: 100,
                           child: ListView.builder(
-                            itemCount: 6,
+                            itemCount: categories.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (_, index) {
-                              return VerticalImageText(image: TImages.shoeIcon, title: 'Shoes', onTap: () {});
+                              return VerticalImageText(
+                                image: categories[index]['image'],
+                                title: categories[index]['title'],
+                                onTap: () {},
+                              );
                             },
                           ),
                         ),

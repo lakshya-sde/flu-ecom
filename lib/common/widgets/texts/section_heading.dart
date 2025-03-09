@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
-import 'package:flu_ecom/utils/constants/sizes.dart';
 
 class SectionHeading extends StatelessWidget {
   const SectionHeading({
