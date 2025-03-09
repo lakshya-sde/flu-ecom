@@ -1,3 +1,6 @@
+import 'package:flu_ecom/common/widgets/layouts/grid_layout.dart';
+import 'package:flu_ecom/features/shop/screens/home/widgets/home_vertical_product_grid.dart';
+import 'package:flu_ecom/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
@@ -6,6 +9,7 @@ import 'package:flu_ecom/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:flu_ecom/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:flu_ecom/features/shop/screens/home/widgets/home_promo_sliders.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/search_container.dart';
+import 'package:flu_ecom/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/primary_header_conatiner.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -51,13 +55,14 @@ class HomeScreen extends StatelessWidget {
             ///Body
             Padding(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
-              child: PromoSlider(
-                banners: [
-                  TImages.promoBanner1,
-                  TImages.promoBanner2,
-                  TImages.promoBanner3,
-                  // TImages.banner1,
-                  // TImages.banner2,
+              child: Column(
+                children: [
+                  ///Promo Slider
+                  PromoSlider(banners: [TImages.promoBanner1, TImages.promoBanner2, TImages.promoBanner3]),
+                  SizedBox(height: TSizes.spaceBtwSections),
+
+                  ///Product Card Vertical
+                  VerticalProductGrid(),
                 ],
               ),
             ),
