@@ -1,3 +1,4 @@
+import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
@@ -37,7 +38,10 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         //Search Bar
-                        SectionHeading(title: 'Popular Categories'),
+                        SectionHeading(
+                          title: 'Popular Categories',
+                          textColor: TColors.white,
+                        ),
                         SizedBox(height: TSizes.spaceBtwItems),
 
                         //Categories
@@ -55,11 +59,21 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ///Promo Slider
-                  PromoSlider(banners: [TImages.promoBanner1, TImages.promoBanner2, TImages.promoBanner3]),
+                  PromoSlider(
+                    banners: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner2,
+                      TImages.promoBanner3,
+                    ],
+                  ),
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   ///Heading
-                  SectionHeading(title: 'Popular Products', showActionButton: true, onPressed: () => {},),
+                  SectionHeading(
+                    title: 'Popular Products',
+                    showActionButton: true,
+                    onPressed: () => {},
+                  ),
                   SizedBox(height: TSizes.spaceBtwItems),
 
                   ///Product Card Vertical

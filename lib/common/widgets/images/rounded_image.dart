@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 
 class RoundedImage extends StatelessWidget {
@@ -45,8 +44,14 @@ class RoundedImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: ClipRRect(
-          borderRadius: applyImageRadius ? BorderRadius.circular(borderRadius) : BorderRadius.zero,
-          child: Image(image: isNetworkImage ? NetworkImage(image) : AssetImage(image), fit: fit),
+          borderRadius:
+              applyImageRadius
+                  ? BorderRadius.circular(borderRadius)
+                  : BorderRadius.zero,
+          child: Image(
+            image: isNetworkImage ? NetworkImage(image) : AssetImage(image),
+            fit: fit,
+          ),
         ),
       ),
     );

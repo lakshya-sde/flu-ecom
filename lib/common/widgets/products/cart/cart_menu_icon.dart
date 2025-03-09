@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:flu_ecom/utils/constants/colors.dart';
 
 class CartCounterIcon extends StatelessWidget {
-  const CartCounterIcon({
-    super.key,
-    this.onPressed,
-    this.iconColor = TColors.white,
-  });
+  const CartCounterIcon({super.key, this.onPressed, this.iconColor});
 
   final VoidCallback? onPressed;
   final Color? iconColor;

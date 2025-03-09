@@ -1,3 +1,4 @@
+import 'package:flu_ecom/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
@@ -56,13 +57,28 @@ class ProductCardVertical extends StatelessWidget {
                     child: TRoundedContainer(
                       radius: TSizes.sm,
                       backgroundColor: TColors.secondary.withValues(alpha: 0.8),
-                      padding: EdgeInsets.symmetric(horizontal: TSizes.sm, vertical: TSizes.xs),
-                      child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black)),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: TSizes.sm,
+                        vertical: TSizes.xs,
+                      ),
+                      child: Text(
+                        '25%',
+                        style: Theme.of(
+                          context,
+                        ).textTheme.labelLarge!.apply(color: TColors.black),
+                      ),
                     ),
                   ),
 
                   /// Favourite Icon Button
-                  Positioned(top: 0, right: 0, child: CircularIcon(icon: Iconsax.heart5, color: Colors.red)),
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: CircularIcon(
+                      icon: Iconsax.heart5,
+                      color: Colors.red,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -71,19 +87,22 @@ class ProductCardVertical extends StatelessWidget {
             ///Details Section
             Padding(
               padding: EdgeInsets.only(left: TSizes.sm),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ProductTitleText(text: title, smallSize: true),
-                  SizedBox(height: TSizes.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text(brand, style: Theme.of(context).textTheme.labelMedium, maxLines: 1),
-                      SizedBox(width: TSizes.xs),
-                      Icon(Iconsax.verify5, color: TColors.primary, size: TSizes.iconXs),
-                    ],
-                  ),
-                ],
+              child: SizedBox(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    /// - Product Title
+                    ProductTitleText(text: title, smallSize: true),
+                    SizedBox(height: TSizes.spaceBtwItems / 2),
+
+                    /// - Brand Name
+                    BrandTitleTextWithVerifiedIcon(
+                      title: brand,
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
+                ),
               ),
             ),
 
@@ -108,7 +127,13 @@ class ProductCardVertical extends StatelessWidget {
                   child: SizedBox(
                     width: TSizes.iconLg * 1.2,
                     height: TSizes.iconLg * 1.2,
-                    child: Center(child: Icon(Iconsax.add, color: TColors.white, size: TSizes.iconSm)),
+                    child: Center(
+                      child: Icon(
+                        Iconsax.add,
+                        color: TColors.white,
+                        size: TSizes.iconSm,
+                      ),
+                    ),
                   ),
                 ),
               ],
