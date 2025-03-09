@@ -3,24 +3,13 @@ import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/features/shop/screens/home/widgets/home_appbar.dart';
-import 'package:flu_ecom/common/widgets/image_text_widgets/vertical_image_text.dart';
+import 'package:flu_ecom/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:flu_ecom/features/shop/screens/home/widgets/home_promo_sliders.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/search_container.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/primary_header_conatiner.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
-
-  final List<Map<String, dynamic>> categories = [
-    {'image': TImages.jeweleryIcon, 'title': 'Jewelery'},
-    {'image': TImages.electronicsIcon, 'title': 'Electronics'},
-    {'image': TImages.furnitureIcon, 'title': 'Furniture'},
-    {'image': TImages.sportIcon, 'title': 'Sports'},
-    {'image': TImages.shoeIcon, 'title': 'Shoe'},
-    {'image': TImages.clothIcon, 'title': 'Cloth'},
-    {'image': TImages.cosmeticsIcon, 'title': 'Cosmetics'},
-    {'image': TImages.animalIcon, 'title': 'Animal'},
-    {'image': TImages.toyIcon, 'title': 'Toy'},
-  ];
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +17,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            ///Header Section with App Bar,Search Bar and Categories
             PrimaryHeaderContainer(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,23 +40,24 @@ class HomeScreen extends StatelessWidget {
                         SizedBox(height: TSizes.spaceBtwItems),
 
                         //Categories
-                        SizedBox(
-                          height: 100,
-                          child: ListView.builder(
-                            itemCount: categories.length,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (_, index) {
-                              return VerticalImageText(
-                                image: categories[index]['image'],
-                                title: categories[index]['title'],
-                                onTap: () {},
-                              );
-                            },
-                          ),
-                        ),
+                        HomeCategories(),
                       ],
                     ),
                   ),
+                ],
+              ),
+            ),
+
+            ///Body
+            Padding(
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: PromoSlider(
+                banners: [
+                  TImages.promoBanner1,
+                  TImages.promoBanner2,
+                  TImages.promoBanner3,
+                  // TImages.banner1,
+                  // TImages.banner2,
                 ],
               ),
             ),
