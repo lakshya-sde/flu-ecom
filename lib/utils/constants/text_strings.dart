@@ -13,12 +13,10 @@ class TTexts {
   static const String onBoardingTitle2 = 'Select Payment Method';
   static const String onBoardingTitle3 = 'Deliver at your door step';
 
-  static const String onBoardingSubTitle1 =
-      'Welcome to a World of Limitless Choices - Your Perfect Product Awaits!';
+  static const String onBoardingSubTitle1 = 'Welcome to a World of Limitless Choices - Your Perfect Product Awaits!';
   static const String onBoardingSubTitle2 =
       'For Seamless Transactions, Choose Your Payment Path - Your Convenience, Our Priority!';
-  static const String onBoardingSubTitle3 =
-      'From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!';
+  static const String onBoardingSubTitle3 = 'From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!';
 
   // -- Authentication Forms
   static const String firstName = 'First Name';
@@ -43,8 +41,7 @@ class TTexts {
 
   // -- Authentication Headings
   static const String loginTitle = 'Welcome back,';
-  static const String loginSubTitle =
-      'Discover Limitless Choices and Unmatched Convenience.';
+  static const String loginSubTitle = 'Discover Limitless Choices and Unmatched Convenience.';
   static const String signupTitle = 'Let’s create your account';
   static const String forgetPasswordTitle = 'Forget password';
   static const String forgetPasswordSubTitle =
@@ -55,15 +52,14 @@ class TTexts {
   static const String confirmEmail = 'Verify your email address!';
   static const String confirmEmailSubTitle =
       'Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.';
-  static const String emailNotReceivedMessage =
-      'Didn’t get the email? Check your junk/spam or resend it.';
-  static const String yourAccountCreatedTitle =
-      'Your account successfully created!';
+  static const String emailNotReceivedMessage = 'Didn’t get the email? Check your junk/spam or resend it.';
+  static const String yourAccountCreatedTitle = 'Your account successfully created!';
   static const String yourAccountCreatedSubTitle =
       'Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!';
 
   // -- Product
   static const String popularProducts = 'Popular Products';
+  static const String productDescription = 'A pair of white & green round toe sneakers with regular styling has a lace-up closure Leather upper Cushioned footbed Rubber outsole Nike Wordmark on tongue and heel These Jordans add big energy to any outfit. Inspired by the courts';
 
   // -- Home
   static const String homeAppbarTitle = 'Good day for shopping';
