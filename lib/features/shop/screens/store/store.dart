@@ -1,17 +1,14 @@
-import 'package:flu_ecom/common/widgets/appbar/tabbar.dart';
-import 'package:flu_ecom/common/widgets/brands/brand_showcase.dart';
-import 'package:flu_ecom/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:flu_ecom/features/shop/screens/store/widgets/category_tab.dart';
-import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/common/widgets/appbar/appbar.dart';
+import 'package:flu_ecom/common/widgets/appbar/tabbar.dart';
 import 'package:flu_ecom/utils/helpers/helper_functions.dart';
-import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/common/widgets/layouts/grid_layout.dart';
+import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:flu_ecom/common/widgets/brands/brand_cards/brand_card.dart';
+import 'package:flu_ecom/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/search_container.dart';
 
 class StoreScreen extends StatelessWidget {
@@ -19,8 +16,6 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
-
     return DefaultTabController(
       length: 5,
       child: Scaffold(
@@ -57,7 +52,7 @@ class StoreScreen extends StatelessWidget {
                           itemCount: 4,
                           mainAxisExtent: 80,
                           itemBuilder: (_, index) {
-                            return BrandCard(showBorder: true, brand: 'Nike',);
+                            return BrandCard(showBorder: true, brand: 'Nike');
                           },
                         ),
                       ],
@@ -76,15 +71,7 @@ class StoreScreen extends StatelessWidget {
                   ),
                 ),
               ],
-          body: TabBarView(
-            children: [
-              CategoryTab(),
-              CategoryTab(),
-              CategoryTab(),
-              CategoryTab(),
-              CategoryTab(),
-            ],
-          ),
+          body: TabBarView(children: [CategoryTab(), CategoryTab(), CategoryTab(), CategoryTab(), CategoryTab()]),
         ),
       ),
     );

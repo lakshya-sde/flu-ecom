@@ -1,3 +1,4 @@
+import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/circular_container.dart';
@@ -12,10 +13,12 @@ class PrimaryHeaderContainer extends StatelessWidget {
     return CurvedEdgeWidget(
       child: Container(
         color: TColors.primary,
-        padding: EdgeInsets.only(bottom: 0),
-        child: SizedBox(
-          height: 400,
-          child: Stack(
+        padding: EdgeInsets.only(bottom: TSizes.xs),
+        child: 
+        // SizedBox(
+        //   height: 400,
+        //   child: 
+          Stack(
             children: [
               Positioned(
                 top: -150,
@@ -34,7 +37,7 @@ class PrimaryHeaderContainer extends StatelessWidget {
               child,
             ],
           ),
-        ),
+        // ),
       ),
     );
   }

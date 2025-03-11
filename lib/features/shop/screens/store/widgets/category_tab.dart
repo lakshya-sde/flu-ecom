@@ -36,7 +36,7 @@ class CategoryTab extends StatelessWidget {
                       image: TImages.productImage2,
                       title: 'Nike Shoes',
                       brand: 'Nike',
-                      price: 1999.2,
+                      price: 1099.2,
                     ),
               ),
               // SizedBox(height: TSizes.spaceBtwSections),

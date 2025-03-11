@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
-import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/utils/helpers/helper_functions.dart';
 import 'package:flu_ecom/common/widgets/brands/brand_cards/brand_card.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/rounded_container.dart';
@@ -22,13 +21,11 @@ class BrandShowcase extends StatelessWidget {
       child: Column(
         children: [
           ///Brand with Products Count
-          BrandCard(showBorder: false, brand: 'Nike',),
-          SizedBox(height: TSizes.spaceBtwItems,),
+          BrandCard(showBorder: false, brand: 'Nike'),
+          SizedBox(height: TSizes.spaceBtwItems),
 
           ///Brand Top #3 Product Images
           Row(children: images.map((img) => brandTopProductImage(img, context)).toList()),
-
-
         ],
       ),
     );
