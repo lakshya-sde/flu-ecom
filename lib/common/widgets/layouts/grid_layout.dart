@@ -22,6 +22,7 @@ class GridLayout extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
+        childAspectRatio: 0.65,
         mainAxisSpacing: TSizes.gridViewSpacing,
         crossAxisSpacing: TSizes.gridViewSpacing,
         mainAxisExtent: mainAxisExtent,
