@@ -1,3 +1,5 @@
+import 'package:flu_ecom/utils/constants/colors.dart';
+import 'package:flu_ecom/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/device/device_utility.dart';
@@ -22,11 +24,12 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     Widget? leading() {
       if (showBackArrow) {
         return IconButton(
           onPressed: () => Get.back(),
-          icon: Icon(Iconsax.arrow_left),
+          icon: Icon(Iconsax.arrow_left, color: dark ? TColors.white : TColors.dark),
         );
       } else if (leadingIcon != null) {
         return IconButton(onPressed: leadingOnPressed, icon: Icon(leadingIcon));

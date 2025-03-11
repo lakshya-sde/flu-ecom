@@ -1,4 +1,3 @@
-import 'package:flu_ecom/features/personalization/screens/profile/profile.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -8,6 +7,7 @@ import 'package:flu_ecom/common/widgets/appbar/appbar.dart';
 import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:flu_ecom/common/widgets/list_tiles/setting_menu_tile.dart';
+import 'package:flu_ecom/features/personalization/screens/profile/profile.dart';
 import 'package:flu_ecom/features/personalization/controllers/setting_controller.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/primary_header_conatiner.dart';
 
@@ -29,7 +29,10 @@ class SettingsScreen extends StatelessWidget {
                 children: [
                   /// AppBar
                   TAppBar(
-                    title: Text('Account', style: Theme.of(context).textTheme.headlineMedium!.apply(color: TColors.white)),
+                    title: Text(
+                      'Account',
+                      style: Theme.of(context).textTheme.headlineMedium!.apply(color: TColors.white),
+                    ),
                   ),
 
                   /// User Profile Card
@@ -52,10 +55,9 @@ class SettingsScreen extends StatelessWidget {
 
                     SettingMenuTile(icon: Iconsax.safe_home, title: 'My Address', subtitle: 'Set Shopping delivery address'),
                     SettingMenuTile(
-                      icon: Iconsax.shopping_cart,
-                      title: 'My Cart',
-                      subtitle: 'Add, remove products and move to checkout',
-                    ),
+                        icon: Iconsax.shopping_cart,
+                        title: 'My Cart',
+                        subtitle: 'Add, remove products and move to checkout'),
                     SettingMenuTile(
                       icon: Iconsax.bag_tick,
                       title: 'My Orders',
@@ -117,6 +119,7 @@ class SettingsScreen extends StatelessWidget {
                       title: 'HD Image Quality',
                       subtitle: 'Set image quality to be seen',
                       trailing: Switch(
+                        activeColor: TColors.white,
                         value: controller.switch3.value,
                         onChanged: (value) => controller.toggleSwitch3(value),
                       ),

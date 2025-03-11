@@ -1,7 +1,9 @@
+import 'package:flu_ecom/features/shop/screens/product-details/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/common/widgets/layouts/grid_layout.dart';
 import 'package:flu_ecom/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:get/get.dart';
 
 class VerticalProductGrid extends StatelessWidget {
   VerticalProductGrid({super.key});
@@ -73,14 +75,13 @@ class VerticalProductGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridLayout(
       itemCount: products.length,
-      itemBuilder:
-          (_, index) => ProductCardVertical(
-            title: products[index]['title'],
-            brand: products[index]['brand'],
-            price: products[index]['price'],
-            image: products[index]['image'],
-            onTap: () {},
-          ),
+      itemBuilder: (_, index) => ProductCardVertical(
+        title: products[index]['title'],
+        brand: products[index]['brand'],
+        price: products[index]['price'],
+        image: products[index]['image'],
+        onTap: () => Get.to(ProductDetail()),
+      ),
     );
   }
 }

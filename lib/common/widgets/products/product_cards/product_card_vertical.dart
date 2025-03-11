@@ -1,3 +1,4 @@
+import 'package:flu_ecom/common/widgets/products/badges/sale_badge.dart';
 import 'package:flu_ecom/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -54,12 +55,14 @@ class ProductCardVertical extends StatelessWidget {
                   /// - Sales Badge
                   Positioned(
                     top: 12,
-                    child: TRoundedContainer(
-                      radius: TSizes.sm,
-                      backgroundColor: TColors.secondary.withValues(alpha: 0.8),
-                      padding: EdgeInsets.symmetric(horizontal: TSizes.sm, vertical: TSizes.xs),
-                      child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black)),
-                    ),
+                    child:
+                        // TRoundedContainer(
+                        //   radius: TSizes.sm,
+                        //   backgroundColor: TColors.secondary.withValues(alpha: 0.8),
+                        //   padding: EdgeInsets.symmetric(horizontal: TSizes.sm, vertical: TSizes.xs),
+                        //   child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black)),
+                        // ),
+                        SaleBadge(sale: 25),
                   ),
 
                   /// Favourite Icon Button
@@ -92,9 +95,8 @@ class ProductCardVertical extends StatelessWidget {
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [ 
+              children: [
                 Padding(padding: const EdgeInsets.only(left: TSizes.sm), child: ProductPriceText(price: price.toString())),
-
                 Container(
                   decoration: BoxDecoration(
                     color: TColors.dark,
