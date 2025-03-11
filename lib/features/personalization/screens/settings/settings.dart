@@ -1,3 +1,4 @@
+import 'package:flu_ecom/features/personalization/screens/profile/profile.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -32,7 +33,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
 
                   /// User Profile Card
-                  UserProfileTile(),
+                  UserProfileTile(onPressed: () => Get.to(ProfileScreen())),
 
                   SizedBox(height: TSizes.spaceBtwSections),
                 ],
