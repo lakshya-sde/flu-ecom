@@ -81,7 +81,6 @@ class VerticalProductGrid extends StatelessWidget {
             image: products[index]['image'],
             onTap: () {},
           ),
-      mainAxisExtent: 288,
     );
   }
 }

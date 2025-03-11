@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 
 class GridLayout extends StatelessWidget {
-  const GridLayout({
-    super.key,
-    required this.itemCount,
-    required this.itemBuilder,
-    this.mainAxisExtent,
-  });
+  const GridLayout({super.key, required this.itemCount, required this.itemBuilder, this.mainAxisExtent = 288});
 
   final int itemCount;
   final double? mainAxisExtent;
@@ -22,7 +17,7 @@ class GridLayout extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.65,
+        // childAspectRatio: 0.65,
         mainAxisSpacing: TSizes.gridViewSpacing,
         crossAxisSpacing: TSizes.gridViewSpacing,
         mainAxisExtent: mainAxisExtent,
