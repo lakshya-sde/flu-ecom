@@ -1,17 +1,17 @@
-import 'package:flu_ecom/utils/constants/colors.dart';
-import 'package:flu_ecom/utils/theme/widget_themes/appbar_theme.dart';
-import 'package:flu_ecom/utils/theme/widget_themes/bottom_sheet_theme.dart';
-import 'package:flu_ecom/utils/theme/widget_themes/elevated_button_theme.dart';
-import 'package:flu_ecom/utils/theme/widget_themes/text_theme.dart';
-import 'package:flu_ecom/utils/theme/widget_themes/checkbox_theme.dart';
-import 'package:flu_ecom/utils/theme/widget_themes/chip_theme.dart';
-import 'package:flu_ecom/utils/theme/widget_themes/outlined_button_theme.dart';
-import 'package:flu_ecom/utils/theme/widget_themes/text_field_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:t_store/utils/theme/widget_themes/appbar_theme.dart';
+import 'package:t_store/utils/theme/widget_themes/bottom_sheet_theme.dart';
+import 'package:t_store/utils/theme/widget_themes/checkbox_theme.dart';
+import 'package:t_store/utils/theme/widget_themes/chip_theme.dart';
+import 'package:t_store/utils/theme/widget_themes/elevated_button_theme.dart';
+import 'package:t_store/utils/theme/widget_themes/outlined_button_theme.dart';
+import 'package:t_store/utils/theme/widget_themes/text_field_theme.dart';
+import 'package:t_store/utils/theme/widget_themes/text_theme.dart';
 
-class AppTheme {
-  //singleton constructor
-  AppTheme._();
+import '../constants/colors.dart';
+
+class TAppTheme {
+  TAppTheme._();
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,

@@ -1,17 +1,18 @@
+import 'package:flu_ecom/common/widgets/appbar/tabbar.dart';
+import 'package:flu_ecom/common/widgets/brands/brand_showcase.dart';
+import 'package:flu_ecom/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:flu_ecom/features/shop/screens/store/widgets/category_tab.dart';
+import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flu_ecom/utils/constants/enums.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/common/widgets/appbar/appbar.dart';
-import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/utils/helpers/helper_functions.dart';
-import 'package:flu_ecom/common/widgets/images/circular_image.dart';
 import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/common/widgets/layouts/grid_layout.dart';
 import 'package:flu_ecom/common/widgets/products/cart/cart_menu_icon.dart';
-import 'package:flu_ecom/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:flu_ecom/common/widgets/brands/brand_cards/brand_card.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/search_container.dart';
-import 'package:flu_ecom/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -20,85 +21,71 @@ class StoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
 
-    return Scaffold(
-      appBar: TAppBar(
-        title: Text('Store', style: Theme.of(context).textTheme.headlineMedium),
-        actions: [CartCounterIcon(onPressed: () {})],
-      ),
-      body: NestedScrollView(
-        headerSliverBuilder:
-            (_, index) => [
-              SliverAppBar(
-                pinned: true,
-                floating: true,
-                backgroundColor: THelperFunctions.isDarkMode(context) ? Colors.transparent : TColors.white,
-                expandedHeight: 440,
-                automaticallyImplyLeading: false,
-                flexibleSpace: Padding(
-                  padding: EdgeInsets.all(TSizes.defaultSpace),
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    children: [
-                      ///Search Bar
-                      SizedBox(height: TSizes.spaceBtwItems),
-                      SearchBarContainer(text: 'Search in Store', showBackground: false, padding: EdgeInsets.zero),
-                      SizedBox(height: TSizes.spaceBtwSections),
+    return DefaultTabController(
+      length: 5,
+      child: Scaffold(
+        appBar: TAppBar(
+          title: Text('Store', style: Theme.of(context).textTheme.headlineMedium),
+          actions: [CartCounterIcon(onPressed: () {})],
+        ),
+        body: NestedScrollView(
+          headerSliverBuilder:
+              (_, index) => [
+                SliverAppBar(
+                  pinned: true,
+                  floating: true,
+                  backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white,
+                  expandedHeight: 440,
+                  automaticallyImplyLeading: false,
+                  flexibleSpace: Padding(
+                    padding: EdgeInsets.all(TSizes.defaultSpace),
+                    child: ListView(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      children: [
+                        ///Search Bar
+                        SizedBox(height: TSizes.spaceBtwItems),
+                        SearchBarContainer(text: 'Search in Store', showBackground: false, padding: EdgeInsets.zero),
+                        SizedBox(height: TSizes.spaceBtwSections),
 
-                      ///Featured Brands
-                      SectionHeading(title: 'Featured Brands', onPressed: () {}, showActionButton: true),
-                      SizedBox(height: TSizes.spaceBtwItems / 1.5),
+                        ///Featured Brands
+                        SectionHeading(title: 'Featured Brands', onPressed: () {}, showActionButton: true),
+                        SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
-                      /// - Brand Card
-                      GridLayout(
-                        itemCount: 4,
-                        mainAxisExtent: 80,
-                        itemBuilder: (_, index) {
-                          return GestureDetector(
-                            onTap: () {},
-                            child: TRoundedContainer(
-                              padding: EdgeInsets.all(TSizes.sm),
-                              showBorder: true,
-                              backgroundColor: Colors.transparent,
-                              child: Row(
-                                children: [
-                                  /// -- Icon
-                                  Flexible(
-                                    child: CircularImage(
-                                      image: TImages.clothIcon,
-                                      backgroundColor: Colors.transparent,
-                                      overlayColor: dark ? TColors.white : TColors.black,
-                                    ),
-                                  ),
-                                  SizedBox(width: TSizes.spaceBtwItems / 2),
+                        /// - Featured Brand Cards
+                        GridLayout(
+                          itemCount: 4,
+                          mainAxisExtent: 80,
+                          itemBuilder: (_, index) {
+                            return BrandCard(showBorder: true, brand: 'Nike',);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
 
-                                  /// -- Text
-                                  Expanded(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        BrandTitleTextWithVerifiedIcon(title: 'Nike', brandTextSize: TextSizes.large),
-                                        Text(
-                                          '256 products',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: Theme.of(context).textTheme.labelMedium,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                  ///Tabs - Tutorial
+                  bottom: TTabBar(
+                    tabs: [
+                      Tab(child: Text('Sports')),
+                      Tab(child: Text('Furniture')),
+                      Tab(child: Text('Electronics')),
+                      Tab(child: Text('Clothes')),
+                      Tab(child: Text('Cosmetics')),
                     ],
                   ),
                 ),
-              ),
+              ],
+          body: TabBarView(
+            children: [
+              CategoryTab(),
+              CategoryTab(),
+              CategoryTab(),
+              CategoryTab(),
+              CategoryTab(),
             ],
-        body: Container(),
+          ),
+        ),
       ),
     );
   }
