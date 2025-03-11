@@ -57,28 +57,13 @@ class ProductCardVertical extends StatelessWidget {
                     child: TRoundedContainer(
                       radius: TSizes.sm,
                       backgroundColor: TColors.secondary.withValues(alpha: 0.8),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: TSizes.sm,
-                        vertical: TSizes.xs,
-                      ),
-                      child: Text(
-                        '25%',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.labelLarge!.apply(color: TColors.black),
-                      ),
+                      padding: EdgeInsets.symmetric(horizontal: TSizes.sm, vertical: TSizes.xs),
+                      child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black)),
                     ),
                   ),
 
                   /// Favourite Icon Button
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: CircularIcon(
-                      icon: Iconsax.heart5,
-                      color: Colors.red,
-                    ),
-                  ),
+                  Positioned(top: 0, right: 0, child: CircularIcon(icon: Iconsax.heart5, color: Colors.red)),
                 ],
               ),
             ),
@@ -97,10 +82,7 @@ class ProductCardVertical extends StatelessWidget {
                     SizedBox(height: TSizes.spaceBtwItems / 2),
 
                     /// - Brand Name
-                    BrandTitleTextWithVerifiedIcon(
-                      title: brand,
-                      textAlign: TextAlign.left,
-                    ),
+                    BrandTitleTextWithVerifiedIcon(title: brand, textAlign: TextAlign.left),
                   ],
                 ),
               ),
@@ -110,11 +92,8 @@ class ProductCardVertical extends StatelessWidget {
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: TSizes.sm),
-                  child: ProductPriceText(price: price.toString()),
-                ),
+              children: [ 
+                Padding(padding: const EdgeInsets.only(left: TSizes.sm), child: ProductPriceText(price: price.toString())),
 
                 Container(
                   decoration: BoxDecoration(
@@ -127,13 +106,7 @@ class ProductCardVertical extends StatelessWidget {
                   child: SizedBox(
                     width: TSizes.iconLg * 1.2,
                     height: TSizes.iconLg * 1.2,
-                    child: Center(
-                      child: Icon(
-                        Iconsax.add,
-                        color: TColors.white,
-                        size: TSizes.iconSm,
-                      ),
-                    ),
+                    child: Center(child: Icon(Iconsax.add, color: TColors.white, size: TSizes.iconSm)),
                   ),
                 ),
               ],
