@@ -1,23 +1,22 @@
-import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
-import 'package:flu_ecom/features/shop/screens/product-details/widgets/bottom_add_to_cart.dart';
-import 'package:flu_ecom/features/shop/screens/product-details/widgets/product_attributes.dart';
-import 'package:flu_ecom/utils/constants/text_strings.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
-import 'package:flu_ecom/utils/helpers/helper_functions.dart';
+import 'package:flu_ecom/utils/constants/text_strings.dart';
+import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
+import 'package:flu_ecom/features/shop/screens/product_reviews/product_review.dart';
 import 'package:flu_ecom/features/shop/screens/product-details/widgets/product_meta_data.dart';
 import 'package:flu_ecom/features/shop/screens/product-details/widgets/rating_share.dart';
+import 'package:flu_ecom/features/shop/screens/product-details/widgets/bottom_add_to_cart.dart';
+import 'package:flu_ecom/features/shop/screens/product-details/widgets/product_attributes.dart';
 import 'package:flu_ecom/features/shop/screens/product-details/widgets/product_detail_image_slider.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:readmore/readmore.dart';
 
 class ProductDetail extends StatelessWidget {
   const ProductDetail({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
-
     return Scaffold(
       bottomNavigationBar: BottomAddToCart(),
       body: SingleChildScrollView(
@@ -71,7 +70,10 @@ class ProductDetail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SectionHeading(title: 'Reviews(199)'),
-                      IconButton(icon: Icon(Iconsax.arrow_right_3, size: 18), onPressed: () {}),
+                      IconButton(
+                        icon: Icon(Iconsax.arrow_right_3, size: 18),
+                        onPressed: () => Get.to(ProductReviewScreen()),
+                      ),
                     ],
                   ),
                   SizedBox(height: TSizes.spaceBtwSections),
