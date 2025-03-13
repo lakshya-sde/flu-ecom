@@ -8,6 +8,7 @@ import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:flu_ecom/common/widgets/list_tiles/setting_menu_tile.dart';
 import 'package:flu_ecom/features/personalization/screens/profile/profile.dart';
+import 'package:flu_ecom/features/personalization/screens/address/address.dart';
 import 'package:flu_ecom/features/personalization/controllers/setting_controller.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/primary_header_conatiner.dart';
 
@@ -53,11 +54,17 @@ class SettingsScreen extends StatelessWidget {
                     SectionHeading(title: 'Account Settings'),
                     SizedBox(height: TSizes.spaceBtwItems),
 
-                    SettingMenuTile(icon: Iconsax.safe_home, title: 'My Address', subtitle: 'Set Shopping delivery address'),
                     SettingMenuTile(
-                        icon: Iconsax.shopping_cart,
-                        title: 'My Cart',
-                        subtitle: 'Add, remove products and move to checkout'),
+                      icon: Iconsax.safe_home,
+                      title: 'My Address',
+                      subtitle: 'Set Shopping delivery address',
+                      onTap: () => Get.to(AddressScreen()),
+                    ),
+                    SettingMenuTile(
+                      icon: Iconsax.shopping_cart,
+                      title: 'My Cart',
+                      subtitle: 'Add, remove products and move to checkout',
+                    ),
                     SettingMenuTile(
                       icon: Iconsax.bag_tick,
                       title: 'My Orders',
