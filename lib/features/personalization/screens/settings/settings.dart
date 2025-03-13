@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/common/widgets/appbar/appbar.dart';
+import 'package:flu_ecom/features/shop/screens/cart/cart.dart';
 import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:flu_ecom/common/widgets/list_tiles/setting_menu_tile.dart';
@@ -64,6 +65,7 @@ class SettingsScreen extends StatelessWidget {
                       icon: Iconsax.shopping_cart,
                       title: 'My Cart',
                       subtitle: 'Add, remove products and move to checkout',
+                      onTap: () => Get.to(CartScreen()),
                     ),
                     SettingMenuTile(
                       icon: Iconsax.bag_tick,

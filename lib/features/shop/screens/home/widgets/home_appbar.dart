@@ -1,7 +1,9 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/utils/constants/text_strings.dart';
 import 'package:flu_ecom/common/widgets/appbar/appbar.dart';
+import 'package:flu_ecom/features/shop/screens/cart/cart.dart';
 import 'package:flu_ecom/common/widgets/products/cart/cart_menu_icon.dart';
 
 class HomeAppbar extends StatelessWidget {
@@ -27,7 +29,9 @@ class HomeAppbar extends StatelessWidget {
           ),
         ],
       ),
-      actions: [CartCounterIcon(onPressed: () {}, iconColor: TColors.white)],
+      actions: [
+        CartCounterIcon(onPressed: () => Get.to(CartScreen()), iconColor: TColors.white),
+      ],
     );
   }
 }
