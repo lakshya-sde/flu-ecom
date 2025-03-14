@@ -91,6 +91,9 @@ class ProductCardVertical extends StatelessWidget {
               ),
             ),
 
+            /* Use Spacer() to utlize all the space to set the price and the cart button at the bottom.
+             * This usually happens when Product title is in single line or 2 lines (Max)
+             */
             Spacer(), //middle spacing
 
             Row(
