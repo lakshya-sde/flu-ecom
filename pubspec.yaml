@@ -46,15 +46,16 @@ flutter:
   #-----------------------Local Assets -----------------------#
   assets:
     - assets/logos/
-    - assets/icons/categories/
     - assets/icons/brands/
+    - assets/icons/categories/
+    - assets/icons/payment_methods/
     
-    - assets/images/on_boarding_images/
-    - assets/images/animations/
-    - assets/images/products/
     - assets/images/banners/
     - assets/images/content/
     - assets/images/reviews/
+    - assets/images/products/
+    - assets/images/animations/
+    - assets/images/on_boarding_images/
 
   #-----------------------Local Fonts -----------------------#
   fonts:
