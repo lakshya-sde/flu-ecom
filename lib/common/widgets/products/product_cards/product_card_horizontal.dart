@@ -76,9 +76,9 @@ class ProductCardHorizontal extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ProductTitleText(text: 'Green Nike Half Sleeves Shirt', smallSize: true),
+                        ProductTitleText(text: title, smallSize: true),
                         SizedBox(height: TSizes.spaceBtwItems / 2),
-                        BrandTitleTextWithVerifiedIcon(title: 'Nike'),
+                        BrandTitleTextWithVerifiedIcon(title: brand),
                       ],
                     ),
                     Spacer(),

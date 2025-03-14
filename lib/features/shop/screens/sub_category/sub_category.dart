@@ -26,7 +26,7 @@ class SubCategoryScreen extends StatelessWidget {
               Column(
                 children: [
                   /// Heading
-                  SectionHeading(title: 'Sports shirts', showActionButton: true, onPressed: () {}),
+                  SectionHeading(title: 'Sports shoes', showActionButton: true, onPressed: () {}),
                   SizedBox(height: TSizes.spaceBtwItems / 2),
 
                   SizedBox(
@@ -38,8 +38,35 @@ class SubCategoryScreen extends StatelessWidget {
                       itemBuilder: (_, index) {
                         return ProductCardHorizontal(
                           image: TImages.productImage1,
-                          title: 'Nike Shoes',
+                          title: 'Nike Green Sport Shoes Mens',
                           brand: 'Nike',
+                          price: 299.99,
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: TSizes.spaceBtwSections),
+
+              Column(
+                children: [
+                  /// Heading
+                  SectionHeading(title: 'Sports Equipments', showActionButton: true, onPressed: () {}),
+                  SizedBox(height: TSizes.spaceBtwItems / 2),
+
+                  SizedBox(
+                    height: 120,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 8,
+                      separatorBuilder: (_, __) => SizedBox(width: TSizes.spaceBtwItems),
+                      itemBuilder: (_, index) {
+                        return ProductCardHorizontal(
+                          image: TImages.productImage28,
+                          title: 'Cosco Red - White Football',
+                          brand: 'Cosco',
                           price: 299.99,
                         );
                       },
