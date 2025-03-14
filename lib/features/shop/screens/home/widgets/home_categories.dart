@@ -1,6 +1,8 @@
+import 'package:flu_ecom/features/shop/screens/sub_category/sub_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/common/widgets/image_text_widgets/vertical_image_text.dart';
+import 'package:get/get.dart';
 
 class HomeCategories extends StatelessWidget {
   HomeCategories({super.key});
@@ -28,7 +30,7 @@ class HomeCategories extends StatelessWidget {
           return VerticalImageText(
             image: categories[index]['image'],
             title: categories[index]['title'],
-            onTap: () {},
+            onTap: () => Get.to(SubCategoryScreen()),
           );
         },
       ),
