@@ -1,3 +1,5 @@
+import 'package:flu_ecom/features/shop/screens/brand/all_brands.dart';
+import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
@@ -14,7 +16,14 @@ import 'package:flu_ecom/common/widgets/custom_shapes/container/search_container
 import 'package:get/get.dart';
 
 class StoreScreen extends StatelessWidget {
-  const StoreScreen({super.key});
+  StoreScreen({super.key});
+
+  final List<Map<String, dynamic>> brands = [
+    {'name': 'Nike', 'icon': TImages.nikeLogo},
+    {'name': 'Adidas', 'icon': TImages.adidasLogo},
+    {'name': 'Puma', 'icon': TImages.pumaLogo},
+    {'name': 'Jordan', 'icon': TImages.jordanLogo},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +58,11 @@ class StoreScreen extends StatelessWidget {
                     SizedBox(height: TSizes.spaceBtwSections),
 
                     ///Featured Brands
-                    SectionHeading(title: 'Featured Brands', onPressed: () {}, showActionButton: true),
+                    SectionHeading(
+                      title: 'Featured Brands',
+                      onPressed: () => Get.to(AllBrandsScreen()),
+                      showActionButton: true,
+                    ),
                     SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
                     /// - Featured Brand Cards
@@ -57,7 +70,7 @@ class StoreScreen extends StatelessWidget {
                       itemCount: 4,
                       mainAxisExtent: 80,
                       itemBuilder: (_, index) {
-                        return BrandCard(showBorder: true, brand: 'Nike');
+                        return BrandCard(showBorder: true, brand: brands[index]['name'], icon: brands[index]['icon']);
                       },
                     ),
                   ],
@@ -76,7 +89,13 @@ class StoreScreen extends StatelessWidget {
               ),
             ),
           ],
-          body: TabBarView(children: [CategoryTab(), CategoryTab(), CategoryTab(), CategoryTab(), CategoryTab()]),
+          body: TabBarView(children: [
+            CategoryTab(),
+            CategoryTab(),
+            CategoryTab(),
+            CategoryTab(),
+            CategoryTab(),
+          ]),
         ),
       ),
     );

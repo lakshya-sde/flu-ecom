@@ -1,14 +1,13 @@
-import 'package:flu_ecom/common/chips/choice_chip.dart';
-import 'package:flu_ecom/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:flu_ecom/common/widgets/texts/product_price_text.dart';
-import 'package:flu_ecom/common/widgets/texts/product_title.dart';
-import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
+import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
+import 'package:flu_ecom/common/chips/choice_chip.dart';
 import 'package:flu_ecom/utils/constants/text_strings.dart';
 import 'package:flu_ecom/utils/helpers/helper_functions.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:flu_ecom/common/widgets/texts/product_title.dart';
+import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
+import 'package:flu_ecom/common/widgets/texts/product_price_text.dart';
+import 'package:flu_ecom/common/widgets/custom_shapes/container/rounded_container.dart';
 
 class ProductAttributes extends StatelessWidget {
   const ProductAttributes({super.key});
@@ -81,8 +80,6 @@ class ProductAttributes extends StatelessWidget {
                 TChoiceChip(text: 'Green', selected: true, onSelected: (value) => {}),
                 TChoiceChip(text: 'Blue', selected: false, onSelected: (value) => {}),
                 TChoiceChip(text: 'Yellow', selected: false, onSelected: (value) => {}),
-                // TChoiceChip(text: 'Red', selected: false, onSelected: (value) => {}),
-                // TChoiceChip(text: 'Black', selected: false, onSelected: (value) => {}),
               ],
             ),
           ],
@@ -103,7 +100,7 @@ class ProductAttributes extends StatelessWidget {
                 TChoiceChip(text: 'UK-9', selected: true, onSelected: (value) => {}),
                 TChoiceChip(text: 'UK-10', selected: false, onSelected: (value) => {}),
               ],
-            )
+            ),
           ],
         )
       ],

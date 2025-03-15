@@ -80,7 +80,7 @@ class VerticalProductGrid extends StatelessWidget {
         brand: products[index]['brand'],
         price: products[index]['price'],
         image: products[index]['image'],
-        onTap: () => Get.to(ProductDetail()),
+        onTap: () => Get.to(ProductDetailScreen()),
       ),
     );
   }

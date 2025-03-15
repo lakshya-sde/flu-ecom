@@ -1,3 +1,4 @@
+import 'package:flu_ecom/features/shop/screens/checkout/checkout.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,8 @@ import 'package:flu_ecom/features/shop/screens/product-details/widgets/bottom_ad
 import 'package:flu_ecom/features/shop/screens/product-details/widgets/product_attributes.dart';
 import 'package:flu_ecom/features/shop/screens/product-details/widgets/product_detail_image_slider.dart';
 
-class ProductDetail extends StatelessWidget {
-  const ProductDetail({super.key});
+class ProductDetailScreen extends StatelessWidget {
+  const ProductDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class ProductDetail extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Get.to(CheckoutScreen()),
                       child: Text('Checkout'),
                     ),
                   ),

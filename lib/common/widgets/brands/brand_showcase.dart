@@ -21,7 +21,7 @@ class BrandShowcase extends StatelessWidget {
       child: Column(
         children: [
           ///Brand with Products Count
-          BrandCard(showBorder: false, brand: 'Nike'),
+          BrandCard(showBorder: false, brand: 'Adidas'),
           SizedBox(height: TSizes.spaceBtwItems),
 
           ///Brand Top #3 Product Images

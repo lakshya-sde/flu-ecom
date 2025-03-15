@@ -9,9 +9,10 @@ import 'package:flu_ecom/common/widgets/custom_shapes/container/rounded_containe
 import 'package:flu_ecom/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 
 class BrandCard extends StatelessWidget {
-  const BrandCard({super.key, required this.showBorder, this.onTap, required this.brand});
+  const BrandCard({super.key, required this.showBorder, this.onTap, required this.brand, this.icon = TImages.adidasLogo});
 
   final String brand;
+  final String icon;
   final bool showBorder;
   final void Function()? onTap;
 
@@ -30,7 +31,7 @@ class BrandCard extends StatelessWidget {
             /// -- Icon
             Flexible(
               child: CircularImage(
-                image: TImages.clothIcon,
+                image: icon,
                 backgroundColor: Colors.transparent,
                 overlayColor: dark ? TColors.white : TColors.black,
               ),
@@ -44,7 +45,7 @@ class BrandCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   BrandTitleTextWithVerifiedIcon(title: brand, brandTextSize: TextSizes.large),
-                  Text('256 products', overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.labelMedium),
+                  Text('25 products', overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.labelMedium),
                 ],
               ),
             ),
