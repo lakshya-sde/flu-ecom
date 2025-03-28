@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "380699412012",
+    "project_id": "flu-ecom",
+    "storage_bucket": "flu-ecom.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380699412012:android:33a4968050ca3d25b6b389",
+        "android_client_info": {
+          "package_name": "com.example.flu_ecom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380699412012-erc3hde1o3i2361unabmi4tsi5fuq7c4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flu_ecom",
+            "certificate_hash": "1a435ee7d11ac93aff436191e04b11a88a93b2d2"
+          }
+        },
+        {
+          "client_id": "380699412012-d91u5o3mnchqud5g51fgc152e6r42dp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO1qE1F40X01txMxsZM-TTc3WC1gqCOP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380699412012-d91u5o3mnchqud5g51fgc152e6r42dp5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "380699412012-o5h9k399oghj0g8vk1142qv13t9np0ut.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fluEcom"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
