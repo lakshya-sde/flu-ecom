@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/theme/theme.dart';
+import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:flu_ecom/features/authentication/screens/onboarding/onborading.dart';
+import 'package:flu_ecom/bindings/general_bindings.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -12,8 +13,14 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
+      initialBinding: GeneralBindings(),
       debugShowCheckedModeBanner: false,
-      home: OnboardingScreen(),
+      home: Scaffold(
+        backgroundColor: TColors.primary,
+        body: Center(
+          child: CircularProgressIndicator(color: Colors.white),
+        ),
+      ),
     );
   }
 }

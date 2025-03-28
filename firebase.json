@@ -1,0 +1,23 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "flu-ecom",
+                    "appId": "1:380699412012:android:33a4968050ca3d25b6b389",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "flu-ecom",
+                    "configurations": {
+                        "android": "1:380699412012:android:33a4968050ca3d25b6b389",
+                        "ios": "1:380699412012:ios:b6c6dbba44efd041b6b389",
+                        "web": "1:380699412012:web:ca957eeb4f6c6485b6b389"
+                    }
+                }
+            }
+        }
+    }
+}
