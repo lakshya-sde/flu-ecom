@@ -1,6 +1,7 @@
 import 'package:flu_ecom/data/repositories/authentication/authentication_repository.dart';
 import 'package:flu_ecom/data/repositories/user/user_repository.dart';
 import 'package:flu_ecom/features/authentication/models/user_model.dart';
+import 'package:flu_ecom/features/authentication/screens/signup/verify_email.dart';
 import 'package:flu_ecom/utils/helpers/network_manager.dart';
 import 'package:flu_ecom/utils/popup/loaders.dart';
 import 'package:get/get.dart';
@@ -24,20 +25,31 @@ class SignupController extends GetxController {
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
   /// -- Sign up
-  Future<void> signup() async {
+  void signup() async {
     try {
       // -- Start Loading
       TFullScreenLoader.openLoadingDialog('We are processing your information...', TImages.docerAnimation);
 
       // -- Check Internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
+      if (!isConnected) {
+        ///Remove loader
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
       // -- Form Validation
-      if (!signupFormKey.currentState!.validate()) return;
+      if (!signupFormKey.currentState!.validate()) {
+        ///Remove loader
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
       // -- Privacy Policy Check
       if (!isTermsConditionCheckbox.value) {
+        ///Remove loader
+        TFullScreenLoader.stopLoading();
+
         TLoaders.warningSnackBar(
           title: 'Accept Privacy Policy',
           message: 'In order to create account, you must have to read and accept the Privacy Policy & Terms of Use.',
@@ -60,18 +72,22 @@ class SignupController extends GetxController {
       );
 
       final userRepository = Get.put(UserRepository());
-      userRepository.saveUserRecord(newUser);
+      await userRepository.saveUserRecord(newUser);
 
-      // -- Show success message
+      // Remove Loader
+      TFullScreenLoader.stopLoading();
+
+      // // -- Show success message
       TLoaders.successSnackBar(title: 'Congratulations', message: 'You account has been created! Verify email to continue');
 
-      // -- Move to Verify email success screen
+      // // -- Move to Verify email success screen
+      Get.to(VerifyEmail(email: email.text.trim()));
     } catch (e) {
-      /// Show some generic error message to user
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-    } finally {
       ///Remove loader
       TFullScreenLoader.stopLoading();
+
+      /// Show some generic error message to user
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 

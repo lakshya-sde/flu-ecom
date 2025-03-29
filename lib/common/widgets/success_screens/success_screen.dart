@@ -3,6 +3,7 @@ import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/common/styles/spacing_styles.dart';
 import 'package:flu_ecom/utils/constants/text_strings.dart';
 import 'package:flu_ecom/utils/helpers/helper_functions.dart';
+import 'package:lottie/lottie.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({
@@ -25,19 +26,21 @@ class SuccessScreen extends StatelessWidget {
           padding: TSpacingStyle.paddingWithAppBarHeight * 2,
           child: Column(
             children: [
-              Image(
-                image: AssetImage(image),
-                width: THelperFunctions.screenWidth() * 0.6,
-              ),
+              /// -- Image
+              Lottie.asset(image, width: MediaQuery.of(context).size.width * 0.6),
               SizedBox(height: TSizes.spaceBtwSections),
 
-              ///Tile and Subtitle
+              /// -- Tile and Subtitle
+
+              // Title
               Text(
                 title,
                 style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: TSizes.spaceBtwItems),
+
+              // Subtitle
               Text(
                 subtitle,
                 style: Theme.of(context).textTheme.labelMedium,
@@ -45,7 +48,7 @@ class SuccessScreen extends StatelessWidget {
               ),
               SizedBox(height: TSizes.spaceBtwSections),
 
-              ///Buttons
+              /// -- Buttons
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
