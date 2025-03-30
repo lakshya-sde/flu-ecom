@@ -93,7 +93,7 @@ class SignupForm extends StatelessWidget {
                 labelText: TTexts.password,
                 prefixIcon: Icon(Iconsax.password_check),
                 suffixIcon: IconButton(
-                  icon: Icon(controller.isHidePassword.value ? Iconsax.eye : Iconsax.eye_slash),
+                  icon: Icon(controller.isHidePassword.value ? Iconsax.eye_slash : Iconsax.eye),
                   onPressed: controller.toggleHidePassword,
                 ),
               ),
