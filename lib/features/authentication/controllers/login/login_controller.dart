@@ -5,6 +5,7 @@ import 'package:flu_ecom/utils/popup/loaders.dart';
 import 'package:flu_ecom/utils/helpers/network_manager.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/utils/popup/full_screen_loader.dart';
+import 'package:flu_ecom/features/authentication/controllers/user/user_controller.dart';
 import 'package:flu_ecom/data/repositories/authentication/authentication_repository.dart';
 
 class LoginController extends GetxController {
@@ -15,6 +16,7 @@ class LoginController extends GetxController {
   final email = TextEditingController();
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   @override
   void onInit() {
@@ -26,6 +28,7 @@ class LoginController extends GetxController {
   void toggleHidePassword() => isHidePassword.value = !isHidePassword.value;
   bool toggleRemeberMe(val) => isRememberMe.value = val;
 
+  /// -- Email and Password SignIn
   Future<void> login() async {
     try {
       /// Start loader
@@ -64,6 +67,38 @@ class LoginController extends GetxController {
       TFullScreenLoader.stopLoading();
 
       /// Show some generic error message to user
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
+  }
+
+  /// -- Google SignIn Authentication
+
+  Future<void> googleSignIn() async {
+    try {
+      /// Start Loading
+      TFullScreenLoader.openLoadingDialog('Logging you in...', TImages.docerAnimation);
+
+      /// Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      /// Google Authentication
+      final userCredentials = await AuthenticationRepository.instance.signInWithGoogle();
+
+      /// Save user credentials in database
+      await userController.saveUserRecord(userCredentials);
+
+      /// Remove loader
+      TFullScreenLoader.stopLoading();
+
+      /// Screen Redirection
+      AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
+      /// Remove loader
+      TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }

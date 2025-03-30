@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:flu_ecom/navigation_menu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flu_ecom/utils/exceptions/format_exceptions.dart';
 import 'package:flu_ecom/utils/exceptions/platform_exceptions.dart';
@@ -78,7 +80,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [Email Verification] - Main Verification
+  /// [Email Verification] - Mail Verification
   Future<void> sendEmailVerification() async {
     try {
       await _auth.currentUser?.sendEmailVerification();
@@ -94,6 +96,46 @@ class AuthenticationRepository extends GetxController {
       throw 'Something went wrong. Please try again';
     }
   }
+
+  /// [ReAuthentication] - Re Authenticate user
+
+  /// [EmailAuthentication] - Forget Password
+
+  /* ----------------------- Federated identity & social sign-in ----------------------- */
+
+  /// [GoogleAuthentication] - Google
+  Future<UserCredential?> signInWithGoogle() async {
+    try {
+      // Trigger the authentication flow
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication? googleAuth = await userAccount?.authentication;
+
+      // Create a new user credential
+      final AuthCredential credentials = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      // Sign in with the credential
+      return await _auth.signInWithCredential(credentials);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      if (kDebugMode) print('Something went wrong with google sign-in: $e');
+    }
+  }
+
+  /// [FacebookAuthentication] - Facebook
+
+  /* ----------------------- ./end Federated identity & social sign-in ----------------------- */
 
   /// [Logout User] - Valid for any authentication
   void logout() async {
