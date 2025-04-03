@@ -1,3 +1,5 @@
+import 'package:flu_ecom/common/skeleton/shimmer_effect.dart';
+import 'package:flu_ecom/features/authentication/controllers/user/user_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
@@ -11,6 +13,8 @@ class HomeAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
+
     return TAppBar(
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,11 +25,21 @@ class HomeAppbar extends StatelessWidget {
               context,
             ).textTheme.labelMedium!.apply(color: TColors.grey),
           ),
-          Text(
-            TTexts.homeAppbarSubTitle,
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall!.apply(color: TColors.white),
+          Obx(
+            () {
+              if (controller.profileLoading.value) {
+                // skeleton loading
+                return ShimmerEffect(width: 80, height: 15);
+              } else {
+                // display user's name
+                return Text(
+                  controller.user.value.fullName,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.headlineSmall!.apply(color: TColors.white),
+                );
+              }
+            },
           ),
         ],
       ),

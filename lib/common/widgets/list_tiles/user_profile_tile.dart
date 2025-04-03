@@ -1,3 +1,4 @@
+import 'package:flu_ecom/features/authentication/controllers/user/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
@@ -11,10 +12,18 @@ class UserProfileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
+
     return ListTile(
       leading: CircularImage(image: TImages.user, width: 50, height: 50, padding: 0),
-      title: Text('Lakshya Goyal', style: Theme.of(context).textTheme.headlineSmall!.apply(color: TColors.white)),
-      subtitle: Text('lakshya@gmail.com', style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white)),
+      title: Text(
+        controller.user.value.fullName,
+        style: Theme.of(context).textTheme.headlineSmall!.apply(color: TColors.white),
+      ),
+      subtitle: Text(
+        controller.user.value.email,
+        style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white),
+      ),
       trailing: IconButton(onPressed: onPressed, icon: Icon(Iconsax.edit, color: TColors.white)),
     );
   }
