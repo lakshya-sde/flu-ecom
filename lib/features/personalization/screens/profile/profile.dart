@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
@@ -6,6 +7,7 @@ import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/common/widgets/images/circular_image.dart';
 import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/features/authentication/controllers/user/user_controller.dart';
+import 'package:flu_ecom/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:flu_ecom/features/personalization/screens/profile/widgets/profile_menu.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -14,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = UserController.instance;
-    
+
     return Scaffold(
       appBar: TAppBar(showBackArrow: true, title: Text('Profile')),
       body: SingleChildScrollView(
@@ -42,7 +44,7 @@ class ProfileScreen extends StatelessWidget {
               SectionHeading(title: 'Profile Information'),
               SizedBox(height: TSizes.spaceBtwItems),
 
-              ProfileMenu(title: 'Name', value: controller.user.value.fullName),
+              ProfileMenu(title: 'Name', value: controller.user.value.fullName, onPressed: () => Get.to(ChangeName())),
               ProfileMenu(title: 'Username', value: controller.user.value.username),
 
               SizedBox(height: TSizes.spaceBtwItems),
@@ -61,7 +63,7 @@ class ProfileScreen extends StatelessWidget {
               Divider(),
               SizedBox(height: TSizes.spaceBtwItems),
 
-              Center(child: TextButton(onPressed: () {}, child: Text('Close Account', style: TextStyle(color: Colors.red)))),
+              Center(child: TextButton(onPressed: controller.deleteAccountWarningPopup, child: Text('Close Account', style: TextStyle(color: Colors.red)))),
             ],
           ),
         ),

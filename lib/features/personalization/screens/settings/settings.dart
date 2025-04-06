@@ -12,6 +12,7 @@ import 'package:flu_ecom/common/widgets/list_tiles/setting_menu_tile.dart';
 import 'package:flu_ecom/features/personalization/screens/profile/profile.dart';
 import 'package:flu_ecom/features/personalization/screens/address/address.dart';
 import 'package:flu_ecom/features/personalization/controllers/setting_controller.dart';
+import 'package:flu_ecom/data/repositories/authentication/authentication_repository.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/primary_header_conatiner.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -138,7 +139,9 @@ class SettingsScreen extends StatelessWidget {
                     SizedBox(height: TSizes.spaceBtwSections),
 
                     ///Logout Button
-                    SizedBox(width: double.infinity, child: OutlinedButton(onPressed: () {}, child: Text('Logout'))),
+                    SizedBox(
+                        width: double.infinity,
+                        child: OutlinedButton(onPressed: AuthenticationRepository.instance.logout, child: Text('Logout'))),
                     SizedBox(height: TSizes.spaceBtwSections * 2.5),
                   ],
                 ),

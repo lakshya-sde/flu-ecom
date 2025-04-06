@@ -7,8 +7,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flu_ecom/utils/exceptions/format_exceptions.dart';
-import 'package:flu_ecom/utils/exceptions/platform_exceptions.dart';
 import 'package:flu_ecom/utils/exceptions/firebase_exceptions.dart';
+import 'package:flu_ecom/utils/exceptions/platform_exceptions.dart';
+import 'package:flu_ecom/data/repositories/user/user_repository.dart';
 import 'package:flu_ecom/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:flu_ecom/features/authentication/screens/login/login.dart';
 import 'package:flu_ecom/features/authentication/screens/signup/verify_email.dart';
@@ -49,7 +50,7 @@ class AuthenticationRepository extends GetxController {
 
   //----------------------Email And Password Login------------------------
 
-  /// [Email Authentication] - Login
+  /// [EmailAuthentication] - Login
   Future<UserCredential> login(String email, String password) async {
     try {
       return await _auth.signInWithEmailAndPassword(email: email, password: password);
@@ -66,7 +67,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [Email Authentication] - Sign Up
+  /// [EmailAuthentication] - Sign Up
   Future<UserCredential> signup(String email, String password) async {
     try {
       return await _auth.createUserWithEmailAndPassword(email: email, password: password);
@@ -83,7 +84,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [Email Verification] - Mail Verification
+  /// [EmailVerification] - Mail Verification
   Future<void> sendEmailVerification() async {
     try {
       await _auth.currentUser?.sendEmailVerification();
@@ -101,6 +102,25 @@ class AuthenticationRepository extends GetxController {
   }
 
   /// [ReAuthentication] - Re Authenticate user
+  Future<void> reAuthenticateEmailAndPassword(String email, String password) async {
+    try {
+      // Create a credential
+      AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
+
+      // ReAuthenticate
+      await _auth.currentUser!.reauthenticateWithCredential(credential);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
   /// [EmailAuthentication] - Forget Password
   Future<void> sendPasswordResetEmail(String email) async {
@@ -155,14 +175,36 @@ class AuthenticationRepository extends GetxController {
 
   /* ----------------------- ./end Federated identity & social sign-in ----------------------- */
 
-  /// [Logout User] - Valid for any authentication
-  void logout() async {
+  /// [LogoutUser] - Valid for any authentication
+  Future<void> logout() async {
     try {
+      await GoogleSignIn().signOut();
       await _auth.signOut();
       Get.offAll(LoginScreen());
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  /// [DeleteUser] - Delete user Auth and Firebase Account
+  Future<void> deleteAccount() async {
+    try {
+      // remove from Firestore
+      await UserRepository.instance.removeUserRecord(_auth.currentUser!.uid);
+
+      // remove from Firebase Auth
+      await _auth.currentUser!.delete();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on TFirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
       throw const TFormatException();
