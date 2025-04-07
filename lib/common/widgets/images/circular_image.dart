@@ -1,7 +1,9 @@
-import 'package:flu_ecom/utils/constants/colors.dart';
-import 'package:flu_ecom/utils/constants/sizes.dart';
-import 'package:flu_ecom/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:flu_ecom/utils/constants/sizes.dart';
+import 'package:flu_ecom/utils/constants/colors.dart';
+import 'package:flu_ecom/utils/helpers/helper_functions.dart';
+import 'package:flu_ecom/common/skeleton/shimmer_effect.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class CircularImage extends StatelessWidget {
   const CircularImage({
@@ -37,10 +39,24 @@ class CircularImage extends StatelessWidget {
         color: backgroundColor ?? (dark ? TColors.black : TColors.white),
         borderRadius: BorderRadius.circular(100),
       ),
-      child: Image(
-        fit: fit,
-        image: isNetworkImage ? NetworkImage(image) : AssetImage(image),
-        color: overlayColor,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: Center(
+          child: isNetworkImage
+              ? CachedNetworkImage(
+                  fit: fit,
+                  color: overlayColor,
+                  imageUrl: image,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      ShimmerEffect(width: 80, height: 80, radius: 80),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                )
+              : Image(
+                  fit: fit,
+                  image: AssetImage(image),
+                  color: overlayColor,
+                ),
+        ),
       ),
     );
   }

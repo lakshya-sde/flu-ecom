@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/common/widgets/appbar/appbar.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
+import 'package:flu_ecom/common/skeleton/shimmer_effect.dart';
 import 'package:flu_ecom/common/widgets/images/circular_image.dart';
 import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/features/authentication/controllers/user/user_controller.dart';
@@ -29,8 +30,16 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    CircularImage(image: TImages.user),
-                    TextButton(onPressed: () {}, child: Text('Change Profile Picture')),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty ? networkImage : TImages.user;
+                      if (controller.imageUploding.value) {
+                        return ShimmerEffect(width: 80, height: 80, radius: 80);
+                      } else {
+                        return CircularImage(image: image, width: 80, height: 80, isNetworkImage: networkImage.isNotEmpty);
+                      }
+                    }),
+                    TextButton(onPressed: controller.uploadUserProfilePicture, child: Text('Change Profile Picture')),
                   ],
                 ),
               ),
@@ -63,7 +72,10 @@ class ProfileScreen extends StatelessWidget {
               Divider(),
               SizedBox(height: TSizes.spaceBtwItems),
 
-              Center(child: TextButton(onPressed: controller.deleteAccountWarningPopup, child: Text('Close Account', style: TextStyle(color: Colors.red)))),
+              Center(
+                  child: TextButton(
+                      onPressed: controller.deleteAccountWarningPopup,
+                      child: Text('Close Account', style: TextStyle(color: Colors.red)))),
             ],
           ),
         ),

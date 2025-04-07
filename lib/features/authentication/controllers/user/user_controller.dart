@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flu_ecom/utils/popup/loaders.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
@@ -18,6 +19,7 @@ class UserController extends GetxController {
   final profileLoading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
   final hidePassword = false.obs;
+  final imageUploding = false.obs;
 
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
@@ -32,7 +34,7 @@ class UserController extends GetxController {
   }
 
   /// Fetch user record
-  void fetchUserRecord() async {
+  Future<void> fetchUserRecord() async {
     try {
       profileLoading.value = true;
       final user = await userRepository.fetchUserDetails();
@@ -47,7 +49,10 @@ class UserController extends GetxController {
   /// Save user record from any registration provider
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try {
-      if (userCredentials != null) {
+      /// First update Rx user and then check if user data is already stored. If not store new data
+      await fetchUserRecord();
+
+      if (user.value.id.isEmpty && userCredentials != null) {
         // Convert Name to First and Last Name
         final displayName = userCredentials.user!.displayName ?? '';
         final nameParts = UserModel.nameParts(displayName);
@@ -157,6 +162,33 @@ class UserController extends GetxController {
       // Close Loader
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
+  }
+
+  /// Upload Profile Image
+  uploadUserProfilePicture() async {
+    try {
+      final image =
+          await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 70, maxHeight: 512, maxWidth: 512);
+      if (image != null) {
+        imageUploding.value = true;
+        // upload image
+        final imageUrl = await userRepository.uploadImage('Users/Images/Profile/', image);
+
+        // update user Image record
+        Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+        await userRepository.updateSingleField(json);
+
+        user.value.profilePicture = imageUrl;
+        user.refresh();
+
+        // Show success image
+        TLoaders.successSnackBar(title: 'Congratulations!', message: 'Your profile image has been updated!');
+      }
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: 'Something went wrong: ${e.toString()}');
+    } finally {
+      imageUploding.value = false;
     }
   }
 }
