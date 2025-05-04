@@ -1,16 +1,16 @@
-import 'package:flu_ecom/features/shop/screens/all_products/all_products.dart';
-import 'package:flu_ecom/utils/constants/colors.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
+import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
 import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/features/shop/screens/home/widgets/home_appbar.dart';
+import 'package:flu_ecom/features/shop/screens/all_products/all_products.dart';
 import 'package:flu_ecom/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:flu_ecom/features/shop/screens/home/widgets/home_promo_sliders.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/search_container.dart';
 import 'package:flu_ecom/features/shop/screens/home/widgets/home_vertical_product_grid.dart';
 import 'package:flu_ecom/common/widgets/custom_shapes/container/primary_header_conatiner.dart';
-import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

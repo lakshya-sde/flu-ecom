@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/common/widgets/appbar/appbar.dart';
 import 'package:flu_ecom/utils/constants/image_strings.dart';
-import 'package:flu_ecom/common/skeleton/shimmer_effect.dart';
+import 'package:flu_ecom/common/widgets/skeleton/shimmer_effect.dart';
 import 'package:flu_ecom/common/widgets/images/circular_image.dart';
 import 'package:flu_ecom/common/widgets/texts/section_heading.dart';
 import 'package:flu_ecom/features/authentication/controllers/user/user_controller.dart';

@@ -1,3 +1,4 @@
+import 'package:flu_ecom/common/widgets/images/circular_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
@@ -11,6 +12,7 @@ class VerticalImageText extends StatelessWidget {
     this.textColor = TColors.white,
     this.onTap,
     this.backgroundColor,
+    this.isNetworkImage = true,
   });
 
   final String image;
@@ -18,6 +20,7 @@ class VerticalImageText extends StatelessWidget {
   final Color textColor;
   final Color? backgroundColor;
   final void Function()? onTap;
+  final bool isNetworkImage;
 
   @override
   Widget build(BuildContext context) {
@@ -30,23 +33,30 @@ class VerticalImageText extends StatelessWidget {
         child: Column(
           children: [
             //Circular Icon
-            Container(
-              width: 56,
-              height: 56,
-              padding: EdgeInsets.all(TSizes.sm),
-              decoration: BoxDecoration(
-                color:
-                    backgroundColor ?? (dark ? TColors.black : TColors.white),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
-                child: Image(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  color: dark ? TColors.light : TColors.dark,
-                ),
-              ),
+            CircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: TSizes.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
+              overlayColor: THelperFunctions.isDarkMode(context) ? TColors.light : TColors.dark,
             ),
+            // Container(
+            //   width: 56,
+            //   height: 56,
+            //   padding: EdgeInsets.all(TSizes.sm),
+            //   decoration: BoxDecoration(
+            //     color: backgroundColor ?? (dark ? TColors.black : TColors.white),
+            //     borderRadius: BorderRadius.circular(100),
+            //   ),
+            //   child: Center(
+            //     child: Image(
+            //       image: AssetImage(image),
+            //       fit: BoxFit.cover,
+            //       color: dark ? TColors.light : TColors.dark,
+            //     ),
+            //   ),
+            // ),
             SizedBox(height: TSizes.spaceBtwItems / 2),
 
             //Text

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flu_ecom/utils/constants/sizes.dart';
 import 'package:flu_ecom/utils/constants/colors.dart';
 import 'package:flu_ecom/utils/helpers/helper_functions.dart';
-import 'package:flu_ecom/common/skeleton/shimmer_effect.dart';
+import 'package:flu_ecom/common/widgets/skeleton/shimmer_effect.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class CircularImage extends StatelessWidget {
