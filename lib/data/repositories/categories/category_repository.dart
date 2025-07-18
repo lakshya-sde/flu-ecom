@@ -29,30 +29,30 @@ class CategoryRepository extends GetxController {
 
   /// Upload Categories to the Cloud Firebase
   Future<void> uploadDummyData(List<CategoryModel> categories) async {
-    try {
-      // Upload all the Categories along with their Images
-      // final storage = Get.put()
+    // try {
+    //   // Upload all the Categories along with their Images
+    //   // final storage = Get.put()
 
-      // Loop through each category
-      for (var category in categories) {
-        // Get ImageData Link from the local assets
-        final file = await storage.getImageDataFromAssets(category.image);
+    //   // Loop through each category
+    //   for (var category in categories) {
+    //     // Get ImageData Link from the local assets
+    //     final file = await storage.getImageDataFromAssets(category.image);
 
-        // Upload Image and Get its URL
-        final url = await storage.uploadImageData('Categories', file, category.name);
+    //     // Upload Image and Get its URL
+    //     final url = await storage.uploadImageData('Categories', file, category.name);
 
-        // Assign URL to Category.image attribute
-        category.image = url;
+    //     // Assign URL to Category.image attribute
+    //     category.image = url;
 
-        // Store category in Firestore
-        await _db.collection('Categories').doc(category.id).set(category.toJson());
-      }
-    } on FirebaseException catch (e) {
-      throw TFirebaseAuthException(e.code).message;
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
-    } catch (e) {
-      throw 'Something went wrong. Please try again. Error- ${e.toString()}';
-    }
+    //     // Store category in Firestore
+    //     await _db.collection('Categories').doc(category.id).set(category.toJson());
+    //   }
+    // } on FirebaseException catch (e) {
+    //   throw TFirebaseAuthException(e.code).message;
+    // } on PlatformException catch (e) {
+    //   throw TPlatformException(e.code).message;
+    // } catch (e) {
+    //   throw 'Something went wrong. Please try again. Error- ${e.toString()}';
+    // }
   }
 }
